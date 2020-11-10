@@ -36,6 +36,7 @@ dependencies:
   url_launcher: ^5.7.10
   firebase_storage: ^5.0.1
   image_picker: ^0.6.7+14
+  qr_flutter: ^3.1.0
   camera:
 
 dev_dependencies:

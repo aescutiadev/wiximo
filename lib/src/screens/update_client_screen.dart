@@ -4,9 +4,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:wiximo_aplication/src/services/auth_service.dart';
 import 'package:wiximo_aplication/src/utils/custom_color_scheme.dart';
 import 'package:wiximo_aplication/src/screens/widgets/identity_widgets.dart';
+
+import '../services/auth_service.dart';
 
 class ValidateClientIdentity extends StatefulWidget {
   ValidateClientIdentity({Key key}) : super(key: key);
@@ -48,10 +51,21 @@ class _ValidateClientIdentityState extends State<ValidateClientIdentity> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           }
+          Map<String, dynamic> data = snapshot.data.data();
+          String qrData =
+              'Nombre: ${data['name']} ${data['last_name_p']} ${data['last_name_p']} Teléfono: ${data['phoneNumber']}';
           return ListView(
             padding: EdgeInsets.symmetric(horizontal: 25.0),
             children: [
-              _identityWidets.infoText(context),
+              data['statusProfile'] == false
+                  ? _identityWidets.infoText(context)
+                  : Center(
+                      child: QrImage(
+                        data: qrData,
+                        version: QrVersions.auto,
+                        size: 200.0,
+                      ),
+                    ),
               _identityWidets.titleText(context, 'DATOS PERSONALES'),
               _formUserIndo(context, snapshot.data),
               _identityWidets.titleText(context, 'VALIDACIÓN DE INDENTIDAD'),
@@ -311,6 +325,9 @@ class _ValidateClientIdentityState extends State<ValidateClientIdentity> {
               ),
             );
           });
+          if (user.data()['isINE'] == true) {
+            updateClientData(user, {'statusProfile' : true});
+          }
         },
       ),
     );
