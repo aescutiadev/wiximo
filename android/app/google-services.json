@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "584994534385",
+    "firebase_url": "https://trabajo-2a64c.firebaseio.com",
+    "project_id": "trabajo-2a64c",
+    "storage_bucket": "trabajo-2a64c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:584994534385:android:20e9f0e55925f542b30a50",
+        "android_client_info": {
+          "package_name": "com.example.wiximo_aplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "584994534385-hqa02f2c4g8udpvonjef2iu7amhu1im5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wiximo_aplication",
+            "certificate_hash": "16f0d77c32bcbc2ca094a652aa12409fe360baa8"
+          }
+        },
+        {
+          "client_id": "584994534385-3vkvbeu24svob6ksq6gnt7jmbcrod6rp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQ6gFSb1SnA3i8GvZ-Z_mREzsOvqOMllA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "584994534385-3vkvbeu24svob6ksq6gnt7jmbcrod6rp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
